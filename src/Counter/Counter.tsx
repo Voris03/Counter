@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Button } from "./Button";
 
 export const Counter = () => {
     const [num, setNum] = useState(0);
@@ -18,8 +19,8 @@ export const Counter = () => {
                 <StyledNumber>{num}</StyledNumber>
             </StyledWrapperNumber>
             <StyledWrapperButton>
-                <Button onClick={incNum}>inc</Button>
-                <Button onClick={resetNum}>reset</Button>
+                <Button title={"inc"} onClick={incNum} /* isDisabled={} */ />
+                <Button title={"reset"} onClick={resetNum} />
                 {/* <button onClick={() => {}}>set</button> */}
             </StyledWrapperButton>
         </StyledCounter>
@@ -63,12 +64,3 @@ const StyledWrapperButton = styled.div`
     justify-content: space-around;
 `
 
-const Button = styled.button`
-    background-color: #00ffff;
-    width: 100px;
-    height: 45px;
-    border-radius: 15px;
-
-    font-size: 32px;
-    color: rgb(69, 69, 69);
-`
