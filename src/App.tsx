@@ -5,7 +5,7 @@ import { Setting } from './Counter/Setting';
 function App() {
   return (
     <div className="App">
-      <Setting />
+      {/* <Setting /> */}
       <Counter /> 
     </div>
   );
