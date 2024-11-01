@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-export const Setting = () => {
+type SettingPropsType = {
+    maxValue: number
+    startValue: number
+}
 
-    const [maxValue, setMaxValue] = useState(5)
+export const Setting = (props: SettingPropsType) => {
+
+    
 
 
     return ( 
@@ -11,11 +16,11 @@ export const Setting = () => {
             <div>
                 <StyledWrapper>
                     <p>max value:</p>
-                    <input type="number" value={maxValue}/>
+                    <input type="number" value={props.maxValue}/>
                 </StyledWrapper>
                 <StyledWrapper>
                     <p>start value</p>
-                    <input />
+                    <input type="number" value={props.startValue}/>
                 </StyledWrapper>
             </div>
             <div>

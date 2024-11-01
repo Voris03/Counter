@@ -2,25 +2,28 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Button } from "./Button";
 
-export const Counter = () => {
-    const [num, setNum] = useState(0);
+type CounterPropsType = {
+    num: number
+    maxValue: number
+    incNum: () => void
+    resetNum: () => void
+}
 
-    const incNum = () => {
-        setNum(prevNum => prevNum + 1);
-    };
+export const Counter = (props: CounterPropsType) => {
 
-    const resetNum = () => {
-        setNum(0);
-    };
+
+
+
+    const isNumberValid = props.num === props.maxValue
 
     return (
         <StyledCounter>
             <StyledWrapperNumber>
-                <StyledNumber>{num}</StyledNumber>
+                <StyledNumber>{props.num}</StyledNumber>
             </StyledWrapperNumber>
             <StyledWrapperButton>
-                <Button title={"inc"} onClick={incNum} /* isDisabled={} */ />
-                <Button title={"reset"} onClick={resetNum} />
+                <Button title={"inc"} onClick={props.incNum}  isDisabled={isNumberValid}  />
+                <Button title={"reset"} onClick={props.resetNum} />
                 {/* <button onClick={() => {}}>set</button> */}
             </StyledWrapperButton>
         </StyledCounter>
