@@ -1,62 +1,93 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { StyledCounter } from "./Counter";
 import { Button } from "./Button";
 
 type SettingPropsType = {
-    maxValue: number;
-    startValue: number;
-    setMaxValue: (value: number) => void;
-    setStartValue: (value: number) => void;
-    setSetting: () => void;
+  maxValue: number;
+  startValue: number;
+  setMaxValue: (value: number) => void;
+  setStartValue: (value: number) => void;
+  setSetting: () => void;
 };
 
 export const Setting = (props: SettingPropsType) => {
-    const [tempMaxValue, setTempMaxValue] = useState(props.maxValue);
-    const [tempStartValue, setTempStartValue] = useState(props.startValue);
+  const [tempMaxValue, setTempMaxValue] = useState(props.maxValue);
+  const [tempStartValue, setTempStartValue] = useState(props.startValue);
 
-    const handleMaxValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTempMaxValue(Number(e.target.value)); // Локальное обновление tempMaxValue
-    };
+  const handleMaxValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTempMaxValue(Number(e.target.value));
+  };
 
-    const handleStartValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setTempStartValue(Number(e.target.value)); // Локальное обновление tempStartValue
-    };
+  const handleStartValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTempStartValue(Number(e.target.value));
+  };
 
-    const applySettings = () => {
-        props.setMaxValue(tempMaxValue); // Передача tempMaxValue в App
-        props.setStartValue(tempStartValue); // Передача tempStartValue в App
-        props.setSetting(); // Применение установленных значений
-    };
+  const applySettings = () => {
+    props.setMaxValue(tempMaxValue);
+    props.setStartValue(tempStartValue);
+    props.setSetting();
+  };
 
-    return (
-        <StyledCounter>
-            <div>
-                <StyledWrapper>
-                    <p>max value:</p>
-                    <input
-                        type="number"
-                        value={tempMaxValue} // Привязка к tempMaxValue
-                        onChange={handleMaxValueChange}
-                    />
-                </StyledWrapper>
-                <StyledWrapper>
-                    <p>start value:</p>
-                    <input
-                        type="number"
-                        value={tempStartValue} // Привязка к tempStartValue
-                        onChange={handleStartValueChange}
-                    />
-                </StyledWrapper>
-            </div>
-            <div>
-                <Button title="set" onClick={applySettings} />
-            </div>
-        </StyledCounter>
-    );
+  return (
+    <StyledSetting>
+      <StyledInputWrapper>
+        <StyledLabel>max value:</StyledLabel>
+        <StyledInput type="number" value={tempMaxValue} onChange={handleMaxValueChange} />
+      </StyledInputWrapper>
+      <StyledInputWrapper>
+        <StyledLabel>start value:</StyledLabel>
+        <StyledInput type="number" value={tempStartValue} onChange={handleStartValueChange} />
+      </StyledInputWrapper>
+      <StyledButtonWrapper>
+        <Button title="set" onClick={applySettings} />
+      </StyledButtonWrapper>
+    </StyledSetting>
+  );
 };
 
-const StyledWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
+const StyledSetting = styled.div`
+  width: 300px;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+`;
+
+const StyledInputWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid #00ffff;
+  padding: 10px;
+  border-radius: 10px;
+`;
+
+const StyledLabel = styled.p`
+  color: #00ffff;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+const StyledInput = styled.input`
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  font-size: 16px;
+  border: 2px solid #00ffff;
+  border-radius: 5px;
+  color: #333;
+  outline: none;
+`;
+
+const StyledButtonWrapper = styled.div`
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  padding: 10px;
 `;
