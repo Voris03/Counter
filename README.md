@@ -1,46 +1,73 @@
-# Getting Started with Create React App
+# Counter Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Простое React-приложение счетчика с настройками, позволяющее пользователю установить начальное и максимальное значения, а также инкрементировать или сбрасывать значение счетчика.
 
-## Available Scripts
+## Оглавление
 
-In the project directory, you can run:
+- [Описание](#описание)
+- [Технологии](#технологии)
+- [Установка](#установка)
+- [Использование](#использование)
+- [Функциональность](#функциональность)
+- [Структура проекта](#структура-проекта)
 
-### `npm start`
+## Описание
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Приложение `Counter` разработано для демонстрации базовых возможностей React и Styled Components. Счетчик позволяет устанавливать максимальное и начальное значения, инкрементировать текущее значение до заданного максимума и сбрасывать его до начального значения.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Технологии
 
-### `npm test`
+- **React** — JavaScript библиотека для создания пользовательских интерфейсов.
+- **TypeScript** — расширение JavaScript с поддержкой статической типизации.
+- **Styled Components** — библиотека для стилизации компонентов в React.
+- **Yarn** — менеджер пакетов для установки и управления зависимостями.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Установка
 
-### `npm run build`
+1. Клонируйте репозиторий на ваш компьютер:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```bash
+   git clone https://github.com/ваш_пользователь/Counter.git
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2.	Перейдите в директорию проекта:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    ```bash
+    cd Counter
 
-### `npm run eject`
+3.	Установите зависимости с помощью Yarn:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    ```bash
+    yarn install
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4.	Запустите приложение:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    ```bash
+    yarn start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Приложение будет запущено по адресу http://localhost:3000.
 
-## Learn More
+### Использование
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-	Введите максимальное значение и начальное значение в соответствующие поля.
+-	Нажмите кнопку set, чтобы применить установленные значения к счетчику.
+-	Используйте кнопку inc для увеличения значения счетчика.
+-	Когда значение счетчика достигает максимального, кнопка inc становится неактивной, а число окрашивается в красный цвет.
+-	Нажмите reset, чтобы сбросить значение счетчика до начального.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Функциональность
+
+-	Установка начального и максимального значений: Пользователь может указать, с какого значения начнется счет и какое значение будет максимальным.
+-	Инкрементирование значения: Кнопка inc увеличивает значение счетчика на 1, пока не достигнет максимума.
+-	Блокировка и стилизация при максимальном значении:
+-	Кнопка inc блокируется, когда счетчик достигает максимального значения.
+-	Значение счетчика отображается красным цветом при достижении максимума.
+-	Кнопка inc визуально размывается, когда недоступна.
+-	Сброс значения: Кнопка reset сбрасывает значение счетчика до начального.
+
+### Структура проекта
+
+-	App.tsx — Главный компонент, управляющий состояниями и передающий их дочерним компонентам Setting и Counter.
+-	Setting.tsx — Компонент для ввода и установки начального и максимального значений.
+-	Counter.tsx — Компонент, отображающий текущее значение счетчика и кнопки inc и reset.
+-	Button.tsx — Компонент кнопки с поддержкой стилизации и блокировки.
+-	styles — Общие стили для оформления компонентов, в частности, Styled Components для стилизации.
