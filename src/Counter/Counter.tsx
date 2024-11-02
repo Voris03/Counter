@@ -30,7 +30,7 @@ export const Counter = (props: CounterPropsType) => {
     );
 };
 
-const StyledCounter = styled.div`
+export const StyledCounter = styled.div`
     width: 35%;
     height: 300px;
     border: 3px solid #00ffff;
